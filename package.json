@@ -1,5 +1,5 @@
 {
-  "name": "@veltra/grpc",
+  "name": "veltra-grpc",
   "version": "0.1.0",
   "description": "Production-ready Yellowstone gRPC client for Solana: typed streaming with automatic reconnect, subscription recovery, heartbeats, backoff, pooling, and failover.",
   "type": "module",

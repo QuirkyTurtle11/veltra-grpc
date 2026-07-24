@@ -1,5 +1,5 @@
 /**
- * @veltra/grpc core — a gRPC-agnostic resilience layer usable with any bidirectional-streaming
+ * veltra-grpc core — a gRPC-agnostic resilience layer usable with any bidirectional-streaming
  * gRPC service. The Yellowstone client (the package's main export) is built on top of this.
  */
 

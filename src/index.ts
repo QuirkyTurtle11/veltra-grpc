@@ -1,5 +1,5 @@
 /**
- * @veltra/grpc — production-ready Yellowstone gRPC client for Solana, built on a gRPC-agnostic
+ * veltra-grpc — production-ready Yellowstone gRPC client for Solana, built on a gRPC-agnostic
  * resilience core.
  *
  * Most users want the Yellowstone client (`VeltraGrpc`). If you have a *different* gRPC

@@ -1,4 +1,4 @@
-# @veltra/grpc
+# veltra-grpc
 
 A production-ready [Yellowstone gRPC](https://github.com/rpcpool/yellowstone-grpc) client for
 Solana. Stream accounts, transactions, slots, and blocks over a **typed, self-healing**
@@ -6,7 +6,7 @@ connection — automatic reconnect, subscription recovery, heartbeats, backoff, 
 failover — without ever touching protobuf or grpc-js internals.
 
 ```ts
-import { VeltraGrpc } from '@veltra/grpc'
+import { VeltraGrpc } from 'veltra-grpc'
 
 const client = new VeltraGrpc({ endpoint: 'https://your-endpoint:443', token: 'x-token' })
 
@@ -22,12 +22,12 @@ stream.on('transaction', (tx) => console.log(tx.signature, 'in slot', tx.slot))
 The raw Yellowstone stream is a bare gRPC duplex: you decode protobuf yourself, and any
 network blip silently drops your subscription. Every serious consumer re-implements the same
 plumbing — reconnect loops, ping heartbeats, re-sending the subscribe request, decoding
-`bytes` fields to base58. `@veltra/grpc` is that plumbing, done once and done right.
+`bytes` fields to base58. `veltra-grpc` is that plumbing, done once and done right.
 
 ## Install
 
 ```bash
-npm install @veltra/grpc
+npm install veltra-grpc
 ```
 
 Requires Node.js 18+.
@@ -48,7 +48,7 @@ Requires Node.js 18+.
 ## Quick start
 
 ```ts
-import { VeltraGrpc } from '@veltra/grpc'
+import { VeltraGrpc } from 'veltra-grpc'
 
 const client = new VeltraGrpc({
   endpoint: process.env.GRPC_ENDPOINT!,
@@ -152,7 +152,7 @@ new VeltraGrpc({
 For lots of independent subscriptions, spread them across several channels:
 
 ```ts
-import { ConnectionPool } from '@veltra/grpc'
+import { ConnectionPool } from 'veltra-grpc'
 
 const pool = new ConnectionPool({ endpoint, token, size: 4 })
 for (const wallet of wallets) {
@@ -169,7 +169,7 @@ reconnect / backoff / keepalive / failover / subscription-recovery machinery, us
 directly — you supply the proto, service, method, auth, and the request to (re)send on connect:
 
 ```ts
-import { ResilientStream } from '@veltra/grpc'
+import { ResilientStream } from 'veltra-grpc'
 
 const stream = new ResilientStream({
   endpoints: ['https://host:443'],
