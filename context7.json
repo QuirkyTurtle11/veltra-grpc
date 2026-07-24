@@ -1,0 +1,16 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "veltra-grpc",
+  "description": "Production-ready Yellowstone gRPC client for Solana. Typed streaming of accounts, transactions, slots, and blocks with automatic reconnect, subscription recovery, heartbeats, exponential backoff, connection pooling, and endpoint failover, on a gRPC-agnostic resilience core.",
+  "folders": ["examples"],
+  "excludeFolders": ["node_modules", "dist", "test"],
+  "rules": [
+    "Install with `npm install veltra-grpc`. It requires Node.js 18+ and is ESM-only: import it, do not use require().",
+    "Stream Solana data over Yellowstone gRPC with `VeltraGrpc`: `const client = new VeltraGrpc({ endpoint, token })`, then `const stream = client.subscribe(options)` and attach typed handlers like `stream.on('transaction', (tx) => ...)`.",
+    "`subscribe()` options: `transactions` (true, a filter, or a named-filter map), `accounts`, `slots`, `blocks`, `blocksMeta`, and `commitment` ('processed' | 'confirmed' | 'finalized'). To watch an account, use `transactions: { accountInclude: ['<address>'] }`. For a quick connectivity check, use `slots: true`.",
+    "Event payloads are typed and decoded: `tx.signature`, `account.pubkey`, and `account.owner` are base58 strings; the raw protobuf message is always on `.raw`.",
+    "Reconnect, backoff, keepalive, subscription recovery, and endpoint failover are automatic. Pass multiple `endpoints` for failover and tune `reconnect` ({ initialDelayMs, maxDelayMs, factor, jitter, maxAttempts }).",
+    "For a NON-Yellowstone gRPC bidirectional-streaming service, use the generic `ResilientStream` export directly: supply `connection` ({ protoPath, service, method, authMetadata }), an `onOpen` hook that (re)sends your request, and an optional `ping`.",
+    "Use `ConnectionPool` to spread many subscriptions across several channels for high-throughput fan-out."
+  ]
+}
