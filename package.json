@@ -1,0 +1,49 @@
+{
+  "name": "@veltra/grpc",
+  "version": "0.1.0",
+  "description": "Production-ready Yellowstone gRPC client for Solana: typed streaming with automatic reconnect, subscription recovery, heartbeats, backoff, pooling, and failover.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "proto",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "solana",
+    "yellowstone",
+    "geyser",
+    "grpc",
+    "streaming",
+    "web3",
+    "blockchain"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.4",
+    "@grpc/proto-loader": "^0.7.13",
+    "bs58": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
