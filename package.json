@@ -35,6 +35,15 @@
     "web3",
     "blockchain"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuirkyTurtle11/veltra-grpc.git"
+  },
+  "homepage": "https://veltrabot.com/docs",
+  "bugs": {
+    "url": "https://github.com/QuirkyTurtle11/veltra-grpc/issues"
+  },
+  "author": "Veltra",
   "license": "MIT",
   "dependencies": {
     "@grpc/grpc-js": "^1.13.4",
